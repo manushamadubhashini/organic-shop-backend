@@ -1,4 +1,4 @@
-# Organin Shop Backend
+# Organic Shop Backend
 
 ## Available Script
 ```

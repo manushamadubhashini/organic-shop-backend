@@ -1,5 +1,13 @@
 import express, {Express, Request , Response} from 'express';
 import app from "./app";
+import dotenv from "dotenv"
+
+dotenv.config(); // Load environment variable from the file
+
+// Define Application Port
+const port = process.env.PORT || 3000;  // Access the port
+
+
 // // 1. Initialize the express app
 // const app: Express = express();
 // 2. Define the application port

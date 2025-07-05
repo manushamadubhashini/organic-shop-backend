@@ -3,7 +3,9 @@ import app from "./app";
 // // 1. Initialize the express app
 // const app: Express = express();
 // 2. Define the application port
-const port = 3000;
+
+// const port = 3000;
+
 // // 3. Define a simple HTTP Get Request
 // app.get('/',(req : Request, res : Response) => {
 //

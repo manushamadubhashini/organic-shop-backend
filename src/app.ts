@@ -6,10 +6,12 @@ const app: Express = express();
 // 2.1 Instruct to parse the request
 // payload data to be converted
 // to json format
+
+
 app.use(express.json());
 
 app.get('/',(req : Request, res : Response) => {
-
+    console.log(req.body)
     res.send("Hello World!!")
 
 });

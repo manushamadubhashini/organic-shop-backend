@@ -1,5 +1,7 @@
 import express, {Express, Request, Response} from "express";
 import productsRoutes from "./routes/product.routes" // import products
+import cors from 'cors'
+import contactRouter from "./routes/contact.routes";
 // 1. Initialize the express app
 const app: Express = express();
 
@@ -10,8 +12,24 @@ const app: Express = express();
 
 
 app.use(express.json());
+const allowedOrigins =[
+    'http://localhost:5173'
+];
 
-app.use("/api/products",productsRoutes) // when we get /api/products  type request  handle into productsRotes
+const corsOptions  = {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow ?: boolean) => void) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not Allowed by CORS"))
+        }
+    }
+
+};
+app.use(cors());  //Enable / Allow CORS here
+
+app.use("/api/products",productsRoutes) // when we get /api/products  type request  handle into productsRoutes
+app.use("/api/contact",contactRouter)
 
 app.get('/',(req : Request, res : Response) => {
     console.log(req.body)

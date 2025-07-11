@@ -13,7 +13,7 @@ export const getProductById =(id :number) : Product | undefined =>{
 }
 
 export const updateProduct =(id:number,data:Product) =>{
-    const product  = productList.find(product => product.id === id)
+    const product  = productList.find(product => product.id === id) //Returns: The first element that matches the condition
     if (!product){
         return null
     }
@@ -22,7 +22,7 @@ export const updateProduct =(id:number,data:Product) =>{
 }
 
 export const deleteProduct =(id:number) =>{
-    const index  = productList.findIndex(product => product.id === id)
+    const index  = productList.findIndex(product => product.id === id) //Returns: The index/position of the first element that matches the condition
     if (index === -1){
         return false
     }

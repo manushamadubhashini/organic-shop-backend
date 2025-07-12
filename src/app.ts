@@ -13,7 +13,7 @@ const app: Express = express();
 
 app.use(express.json());
 const allowedOrigins =[
-    'http://localhost:5173'
+    'http://localhost:5173' // if this only port get request allowed
 ];
 
 const corsOptions  = {
@@ -26,7 +26,7 @@ const corsOptions  = {
     }
 
 };
-app.use(cors());  //Enable / Allow CORS here
+app.use(cors(corsOptions));  //Enable / Allow CORS here // middleware
 
 app.use("/api/products",productsRoutes) // when we get /api/products  type request  handle into productsRoutes
 app.use("/api/contact",contactRouter)

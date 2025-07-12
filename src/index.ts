@@ -1,11 +1,14 @@
 import express, {Express, Request , Response} from 'express';
 import app from "./app";
 import dotenv from "dotenv"
+import DBConnection from "./db/DBConnection";
 
 dotenv.config(); // Load environment variable from the file
 
 // Define Application Port
 const port = process.env.PORT || 3000;  // Access the port
+
+DBConnection().then(result => console.log(result));
 
 
 // // 1. Initialize the express app
@@ -21,6 +24,8 @@ const port = process.env.PORT || 3000;  // Access the port
 //
 // });
 // 4. Instructs the express app to listen on port 3000
+
+
 app.listen(port,() => {
     console.log(`server is running at http://localhost:${port}`)
 })
